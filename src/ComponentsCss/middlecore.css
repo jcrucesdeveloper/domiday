@@ -1,0 +1,41 @@
+.timeday{
+    text-align: center;
+    font-size: 1.4em;
+    border: 2px solid #000;
+    font-weight: bold;
+    padding: 0.3em;
+    margin: 0px;
+    background-color: #e6f2ff;
+    -webkit-box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
+box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
+}
+
+.timeday p {
+    margin: 0.08em;
+    font-size: 1.3em;
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+.domi_container{
+    border: 1px solid black;
+    background-color: #F0F8FF;
+    margin: 1em;
+    padding: 1em;
+    overflow-y: scroll;
+}
+
+.domi_container ul {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.domi_item{
+    padding: 1em;
+    border: 1px solid #000;
+    margin: 0.4em;
+    list-style-type: none;
+}
+
+
