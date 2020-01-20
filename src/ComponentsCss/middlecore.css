@@ -14,16 +14,18 @@ box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
 .timeday p {
     margin: 0.08em;
     font-size: 1.3em;
-    font-family: 'Raleway', sans-serif;
+
     
 }
 
 .domi_container{
-    border: 1px solid black;
+
     background-color: #F0F8FF;
+  
     margin: 1em;
-    padding: 1em;
+    padding: 1.3em;
     overflow-y: scroll;
+    height: 70vh;
 }
 
 .domi_container ul {
@@ -32,10 +34,35 @@ box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
 }
 
 .domi_item{
-    padding: 1em;
-    border: 1px solid #000;
-    margin: 0.4em;
+    
+  
+    font-size: 1.1em;
+    margin: 0.7em;
     list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+   
+    
 }
 
+.domi_item div{
+    padding: 1em;
+    background-color: #E8E8E8;
+    font-weight: bold;
+    
+}
+
+.domi_item input {
+    width: 100%;   
+    height: 8vh;
+    text-align: center;
+    border: 0;
+    
+    font-family: inherit;
+    padding: 0;
+    box-sizing: border-box;
+
+    background: transparent;
+}
 

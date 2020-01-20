@@ -9,7 +9,9 @@ class MiddleCore extends React.Component {
         return(
             <div className="container">
                 <TimeDay/>
-                <DomiContainer/>                
+                <ul className="domi_container">
+                <DomiContainer activities={this.props.activities}/>       
+                </ul>
             </div>
         )
     }

@@ -11,14 +11,9 @@ class DomiContainer extends React.Component {
         ]
     }
     render(){
-        return(
-            <ul className="domi_container">
-                <DomiItem />
-                <DomiItem />
-                <DomiItem />
-                <DomiItem />
-            </ul>
-        )
+        return this.props.activities.map((activity)  =>(<DomiItem activities={activity}/>
+            )
+        );
     }
 
 

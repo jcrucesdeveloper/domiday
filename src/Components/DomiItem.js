@@ -5,8 +5,8 @@ class DomiItem extends React.Component {
     render(){
         return(
             <li className="domi_item">
-               <div>{this.props.hour} </div>
-               <div>{this.props.activity} </div> 
+               <div>{this.props.activities.hour}</div>
+               <input placeholder="What are you going to do at this hour?"></input>
             </li>
         )
     }
