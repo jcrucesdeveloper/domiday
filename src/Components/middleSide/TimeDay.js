@@ -1,5 +1,5 @@
 import React from 'react';
-import {MonthToText, DayToText} from './Helpers';
+import {MonthToText, DayToText} from '../Helpers';
 
 
 class TimeDay extends React.Component {

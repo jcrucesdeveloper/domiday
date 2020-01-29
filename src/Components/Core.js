@@ -1,8 +1,8 @@
 import React from 'react';
-import LeftCore from './LeftCore';
-import MiddleCore from './MiddleCore';
-import RightCore from './RightCore';
-import '../ComponentsCss/core.css';
+import LeftCore from './leftSide/LeftCore';
+import MiddleCore from './middleSide/MiddleCore';
+import RightCore from './rightSide/RightCore';
+import './coreCss/core.css';
 
 class Core extends React.Component {
 
