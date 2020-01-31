@@ -26,7 +26,7 @@ class TimeDay extends React.Component {
         let monthN = clock.getMonth();
         let monthT = MonthToText(monthN);
         let yearN = clock.getFullYear();
-        console.log(dayN);
+     
         
         //Set State
         this.setState({

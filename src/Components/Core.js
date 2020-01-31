@@ -182,9 +182,45 @@ class Core extends React.Component {
                 },
            
             ],
-            habits: '',
-            objective: '',
-            goals: '',
+            habits: {
+                name: 'habits',
+                color: 'default',
+                list: [
+                    {
+                        id: 1,
+                        info: 'Read',
+                        progress: 2
+                    
+                    }
+
+                ]
+            },
+            objectives: {
+                name: 'objectives',
+                color: 'default',
+                list: [
+                    {
+                        id: 1,
+                        info: 'Read',
+                        progress: 2
+                    
+                    }
+
+                ]
+            },
+            goals: {
+                name: 'goals',
+                color: 'default',
+                list: [
+                    {
+                        id: 1,
+                        info: 'Read',
+                        progress: 2
+                    
+                    }
+
+                ]
+            },
             
         }
     }
@@ -194,7 +230,7 @@ class Core extends React.Component {
             <div className="core">
                 <LeftCore />
                 <MiddleCore activities={this.state.activities}/>
-                <RightCore/>
+                <RightCore habits={this.state.habits} objectives={this.state.objectives} goals={this.state.goals}/>
             </div>
         )
     }
