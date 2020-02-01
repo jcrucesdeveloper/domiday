@@ -224,13 +224,92 @@ class Core extends React.Component {
             
         }
     }
+
     
+   createItem = (name) => {
+
+        //Create the item
+        let emptyItem = {};
+       
+      
+        if(name === 'habits'){
+            const newId = this.state.habits.list.length + 1;
+            emptyItem = {
+                id : newId,
+                info : '',
+                progress: 0
+            }           
+            
+        //Add to the state
+        this.setState({
+            habits: {
+                name: this.state.habits.name,
+                color: this.state.habits.color,
+                list: [...this.state.habits.list, emptyItem]
+                    }
+            });
+
+
+
+        }
+        
+        
+        if(name=== 'objectives'){
+            const newId = this.state.objectives.list.length +1;
+            emptyItem = {
+                id : newId,
+                info : '',
+                progress: 0
+            }
+
+          //Add to the state
+          this.setState({
+            objectives: {
+                name: this.state.objectives.name,
+                color: this.state.objectives.color,
+                list: [...this.state.objectives.list, emptyItem]
+                    }
+            });
+
+        }   
+        if(name === 'goals'){
+            const newId = this.state.goals.list.length +1;
+
+            emptyItem = {
+                id : newId,
+                info : '',
+                progress: 0
+            }
+
+        //Add to the state
+        this.setState({
+            goals: {
+                name: this.state.goals.name,
+                color: this.state.goals.color,
+                list: [...this.state.goals.list, emptyItem]
+                    }
+            });
+
+        }
+
+     
+      
+   }
+     
     render(){
+
+       
+
         return(
             <div className="core">
                 <LeftCore />
                 <MiddleCore activities={this.state.activities}/>
-                <RightCore habits={this.state.habits} objectives={this.state.objectives} goals={this.state.goals}/>
+                <RightCore 
+                habits={this.state.habits} 
+                objectives={this.state.objectives} 
+                goals={this.state.goals}
+                createItem={this.createItem}
+                />
             </div>
         )
     }

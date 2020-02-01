@@ -2,11 +2,16 @@ import React from 'react'
 
 
 class BoxItem extends React.Component {
-    render(){
+
+
+    show = () =>{
+        console.log(this.props.id);
+    }
+    render(){ 
         return(
             <li className="boxItem">
-                <input ></input>
-                <button>x</button>
+                <input></input>
+                <button onClick={this.show}>x</button>
             </li>
         )
     }
