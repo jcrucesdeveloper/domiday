@@ -14,12 +14,20 @@ class BoxProgress extends React.Component {
                 <div className="tittle"> 
                     <span className="tittleType">{name}</span>
                     <button onClick={handleCreateItem}>+</button>
-                    <button>-</button>
+                 
                 </div>
 
             <ul className="boxprogress_container">
               {list.map((item) => 
-                <BoxItem key={item.id} id={item.id} />)}
+                <BoxItem 
+                key={item.id} 
+                id={item.id} 
+                deleteItem={this.props.deleteItem}
+                category={name}
+                info={item.info}
+                changeItemValue={this.props.changeItemValue}
+                
+                />)}
             </ul>
       
             </div>

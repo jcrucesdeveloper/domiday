@@ -18,32 +18,36 @@
     
 }
 
-.domi_container{
 
+.domi_container{
     background-color: #F0F8FF;
-  
+    width: 90%;
     margin: 1em;
     padding: 1.3em;
-    overflow-y: scroll;
     height: 70vh;
+    overflow: hidden;
+   
+ 
+    
 }
 
-.domi_container ul {
-    text-decoration: none;
-    list-style-type: none;
-}
+
 
 .domi_item{
     
-  
+    position: relative;
+
     font-size: 1.1em;
     margin: 0.7em;
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
-   
-    
+    height: 10vh;
+}
+
+.timepassed{
+    opacity: .3;
 }
 
 .domi_item div{
@@ -55,7 +59,8 @@
 
 .domi_item input {
     width: 100%;   
-    height: 8vh;
+    font-size: .9em;
+    font-weight: bold;
     text-align: center;
     border: 0;
     

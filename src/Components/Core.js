@@ -9,6 +9,8 @@ class Core extends React.Component {
     constructor(props){
         super(props);
 
+        
+
         this.state = {
             activities: [
                 
@@ -180,6 +182,8 @@ class Core extends React.Component {
                     important: false
 
                 },
+               
+                
            
             ],
             habits: {
@@ -226,13 +230,75 @@ class Core extends React.Component {
     }
 
     
-   createItem = (name) => {
+    
+
+// MIDDLE CORE 
+changeActivityValue = (id,message) => {
+
+    this.setState(prevState => ({
+        activities: prevState.activities.map(domi => domi.id === id ? {
+            ...domi, activity : message} : domi)
+    }))
+}
+
+
+
+
+// RIGH CORE
+
+
+
+changeItemValue = (category,id,message) => {
+
+    if(category === 'habits'){
+        this.setState(prevState => ({
+            habits: {
+            ...this.state.habits,
+            list: prevState.habits.list.map(item => item.id === id ?  {...item, info: message} : item)
+
+            }
+
+        }))
+    }
+    if(category === 'objectives'){
+
+        this.setState(prevState => ({
+            objectives: {
+            ...this.state.objectives,
+            list: prevState.objectives.list.map(item => item.id === id ?  {...item, info: message} : item)
+
+            }
+
+        }))
+    
+
+    }
+    if(category === 'goals'){
+        
+        this.setState(prevState => ({
+            goals: {
+            ...this.state.goals,
+            list: prevState.goals.list.map(item => item.id === id ?  {...item, info: message} : item)
+
+            }
+
+        }))
+
+    }
+
+}
+
+
+
+
+//I can improve this code later
+   createItem = (category) => {
 
         //Create the item
         let emptyItem = {};
        
       
-        if(name === 'habits'){
+        if(category === 'habits'){
             const newId = this.state.habits.list.length + 1;
             emptyItem = {
                 id : newId,
@@ -243,8 +309,7 @@ class Core extends React.Component {
         //Add to the state
         this.setState({
             habits: {
-                name: this.state.habits.name,
-                color: this.state.habits.color,
+              ...this.state.habits,
                 list: [...this.state.habits.list, emptyItem]
                     }
             });
@@ -254,7 +319,7 @@ class Core extends React.Component {
         }
         
         
-        if(name=== 'objectives'){
+        if(category=== 'objectives'){
             const newId = this.state.objectives.list.length +1;
             emptyItem = {
                 id : newId,
@@ -265,14 +330,13 @@ class Core extends React.Component {
           //Add to the state
           this.setState({
             objectives: {
-                name: this.state.objectives.name,
-                color: this.state.objectives.color,
+                ...this.state.objectives,
                 list: [...this.state.objectives.list, emptyItem]
                     }
             });
 
         }   
-        if(name === 'goals'){
+        if(category === 'goals'){
             const newId = this.state.goals.list.length +1;
 
             emptyItem = {
@@ -284,8 +348,7 @@ class Core extends React.Component {
         //Add to the state
         this.setState({
             goals: {
-                name: this.state.goals.name,
-                color: this.state.goals.color,
+              ...this.state.goals,
                 list: [...this.state.goals.list, emptyItem]
                     }
             });
@@ -295,6 +358,54 @@ class Core extends React.Component {
      
       
    }
+
+   deleteItem = (category,id) => {
+
+    if(category === 'habits'){
+
+           //Delete state
+           this.setState({
+            habits: {
+                name: this.state.habits.name,
+                color: this.state.habits.color,
+                list: this.state.habits.list.filter((x) => x.id !== id)
+            }
+            });
+
+    }
+    if(category === 'objectives'){
+
+          //DeleteState
+          this.setState({
+            objectives: {
+                name: this.state.objectives.name,
+                color: this.state.objectives.color,
+                list: this.state.objectives.list.filter((x) => x.id !== id)
+            }
+            });
+
+    }
+    if(category === 'goals'){
+
+           //Delete state
+           this.setState({
+            goals: {
+                name: this.state.goals.name,
+                color: this.state.goals.color,
+                list: this.state.goals.list.filter((x) => x.id !== id)
+            }
+            });
+
+    }
+    
+       
+   }
+
+
+   
+
+
+
      
     render(){
 
@@ -303,12 +414,18 @@ class Core extends React.Component {
         return(
             <div className="core">
                 <LeftCore />
-                <MiddleCore activities={this.state.activities}/>
+                <MiddleCore 
+                activities={this.state.activities}
+                changeActivityValue={this.changeActivityValue}
+                    
+                />
                 <RightCore 
                 habits={this.state.habits} 
                 objectives={this.state.objectives} 
                 goals={this.state.goals}
+                changeItemValue={this.changeItemValue}
                 createItem={this.createItem}
+                deleteItem={this.deleteItem}
                 />
             </div>
         )
