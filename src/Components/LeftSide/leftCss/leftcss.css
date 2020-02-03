@@ -1,0 +1,29 @@
+.userItem{
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue ;
+}
+
+.leftCore{
+    display: grid;
+    grid-template-rows: 2fr 5fr;
+}
+
+
+.todoList{
+    background-color: #FFF;
+    margin-top: 1em;
+    height: 100%;
+  
+}
+
+
+.todoContainer{
+   
+    padding: 0;
+}
+.todoItem{
+width: 100%;
+margin-left: 0;
+padding: 0;
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-class userItem extends React.Component {
+class UserItem extends React.Component {
     render(){
         return(
-            <div className="weekItem">
+            <div className="userItem">
                
             </div>
         )
@@ -13,4 +13,4 @@ class userItem extends React.Component {
 
 }
 
-export default userItem;
+export default UserItem;

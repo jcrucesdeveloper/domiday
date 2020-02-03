@@ -5,6 +5,49 @@
 
 .container{
     padding: 1.4em;
-    height: 80vh;
+    height: 90vh;
 }
 
+
+
+.button{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    margin: 0;
+    padding: 0;
+
+  }
+  
+  .buttonX div{
+    background-color: #A0A0A0;
+    width: 0.2em;
+    height: 1em;
+    border-radius: 2px;
+    position: absolute;
+    transform: rotateZ(-45deg);
+    
+    cursor: pointer;
+  
+  }
+
+  .buttonX :first-child {
+    transform: rotateZ(45deg);
+  }
+
+  .add div{
+    background-color: #A0A0A0;
+    width: 0.2em;
+    height: 1.1em;
+    border-radius: 3px;
+    position: absolute;
+    
+  }
+
+  .add div:first-child{
+    transform: rotateZ(-90deg);
+   
+  }

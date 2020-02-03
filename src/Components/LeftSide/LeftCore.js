@@ -9,7 +9,7 @@ class LeftCore extends React.Component {
         return(
             <div className="container leftCore">
                 <UserItem/>
-                <TodoList/>
+                <TodoList todoList={this.props.todoList}/>
             </div>
         )
     }

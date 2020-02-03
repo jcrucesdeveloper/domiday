@@ -1,4 +1,5 @@
 import React from 'react'
+import ButtonX from '../ButtonX';
 
 
 class BoxItem extends React.Component {
@@ -22,7 +23,7 @@ class BoxItem extends React.Component {
         return(
             <li className="boxItem">
                 <input value={this.props.info} onChange={this.handleChangeItemValue}></input>
-                <button onClick={this.handleDeleteItem}>x</button>
+                <ButtonX buttonFunction={this.handleDeleteItem}/>
             </li>
         )
     }

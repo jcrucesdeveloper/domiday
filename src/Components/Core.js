@@ -1,5 +1,5 @@
 import React from 'react';
-import LeftCore from './leftSide/LeftCore';
+import LeftCore from './LeftSide/LeftCore';
 import MiddleCore from './middleSide/MiddleCore';
 import RightCore from './rightSide/RightCore';
 import './coreCss/core.css';
@@ -186,50 +186,36 @@ class Core extends React.Component {
                 
            
             ],
+            todo: [
+                {
+                id : 1,
+                info : 'caca'
+                }
+
+            ],
             habits: {
                 name: 'habits',
                 color: 'default',
-                list: [
-                    {
-                        id: 1,
-                        info: 'Read',
-                        progress: 2
-                    
-                    }
-
-                ]
+                list: []
             },
             objectives: {
                 name: 'objectives',
                 color: 'default',
-                list: [
-                    {
-                        id: 1,
-                        info: 'Read',
-                        progress: 2
-                    
-                    }
-
-                ]
+                list: []
             },
             goals: {
                 name: 'goals',
                 color: 'default',
-                list: [
-                    {
-                        id: 1,
-                        info: 'Read',
-                        progress: 2
-                    
-                    }
-
-                ]
+                list: []
             },
             
         }
     }
 
-    
+
+//LEFT CORE
+
+
     
 
 // MIDDLE CORE 
@@ -413,7 +399,9 @@ changeItemValue = (category,id,message) => {
 
         return(
             <div className="core">
-                <LeftCore />
+                <LeftCore 
+                todoList={this.state.todo}
+                />
                 <MiddleCore 
                 activities={this.state.activities}
                 changeActivityValue={this.changeActivityValue}

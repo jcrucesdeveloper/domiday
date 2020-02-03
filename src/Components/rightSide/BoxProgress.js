@@ -1,5 +1,6 @@
 import React from 'react'
 import BoxItem from './BoxItem'
+import ButtonAdd  from '../ButtonAdd';
 
 
 class BoxProgress extends React.Component {
@@ -13,8 +14,7 @@ class BoxProgress extends React.Component {
             <div className="box">
                 <div className="tittle"> 
                     <span className="tittleType">{name}</span>
-                    <button onClick={handleCreateItem}>+</button>
-                 
+                    <ButtonAdd buttonFunction={handleCreateItem}></ButtonAdd>
                 </div>
 
             <ul className="boxprogress_container">
