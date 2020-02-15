@@ -10,8 +10,12 @@ class TimeDay extends React.Component {
         
         return(
             <div className="timeday">
-                <p>{monthText} {dayNumber}, {year}</p>
-                <p>{dayText}</p>
+                <div><i class="fas fa-chevron-left"></i></div>
+                <div>
+                    <p>{monthText} {dayNumber}, {year}</p>
+                        <p>{dayText}</p>     
+                </div>
+                <div><i class="fas fa-chevron-right"></i></div>
             </div>
         )
     }

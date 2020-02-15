@@ -13,7 +13,8 @@ class BoxProgress extends React.Component {
         return(
             <div className="box">
                 <div className="tittle"> 
-                    <span className="tittleType">{name}</span>
+                    <span className="tittleType">{name}  {this.props.icon}</span>
+                    
                     <ButtonAdd buttonFunction={handleCreateItem}></ButtonAdd>
                 </div>
 

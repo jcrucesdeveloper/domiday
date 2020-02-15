@@ -12,6 +12,10 @@ class Core extends React.Component {
         
 
         this.state = {
+
+            user:{
+                firstName: 'Jorge'
+            },
             activities: [
                 
                 { 
@@ -215,6 +219,39 @@ class Core extends React.Component {
 
 //LEFT CORE
 
+addTodoItemValue= () =>  {
+    let lastItemId = this.state.todo.length;
+    const newTodo = {
+        id: lastItemId +1,
+        info: ''
+        
+    }
+    this.setState({todo:[...this.state.todo,newTodo]})
+}   
+
+deleteTodoItemValue = (id) => {
+
+    this.setState({
+        todo: this.state.todo.filter((todoItem) => (todoItem.id !== id))
+    });
+
+}
+
+
+
+changeTodoItemValue = (id,message)  =>{
+
+    this.setState(prevState => ({
+        todo: prevState.todo.map(item => item.id === id ? {...item,info : message} : item)
+
+    }))
+
+
+
+
+}
+
+
 
     
 
@@ -401,6 +438,10 @@ changeItemValue = (category,id,message) => {
             <div className="core">
                 <LeftCore 
                 todoList={this.state.todo}
+                addTodoItemValue={this.addTodoItemValue}
+                deleteTodoItemValue={this.deleteTodoItemValue}
+                changeTodoItemValue={this.changeTodoItemValue}
+                userInfo={this.state.user}
                 />
                 <MiddleCore 
                 activities={this.state.activities}

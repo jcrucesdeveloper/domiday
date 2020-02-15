@@ -7,6 +7,10 @@ const DayToText = function (x) {
     if(x === 5) return "Friday";
     if(x === 6) return "Saturday";
 }
+
+
+const Days = ['S','M','T','W','T','F','S'];
+export default Days;
  
 
 

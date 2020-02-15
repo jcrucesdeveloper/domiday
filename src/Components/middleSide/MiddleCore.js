@@ -31,7 +31,8 @@ class MiddleCore extends React.Component {
             month: monthN,
             monthText: monthT,
             year: yearN,
-            hour: real_hour
+            hour: real_hour,
+            mouseOn: false
         }
         window.addEventListener('wheel',this.handleScroll);
         
@@ -46,12 +47,21 @@ class MiddleCore extends React.Component {
         if (cursor > 0) new_y = new_y - 5;
         else new_y = new_y + 5;
 
+        if(this.state.mouseOn){
+            this.setState({
+                scrollValue : new_y
+            });
+        }
+       
+        
+    }
 
-        this.setState({
-            scrollValue : new_y
-        });
-        
-        
+    handleMouseEnter = () => {
+        this.setState({mouseOn: true});
+    }
+     
+    handleMouseLeave = () => {
+        this.setState({mouseOn:false});
     }
  
 
@@ -68,7 +78,7 @@ class MiddleCore extends React.Component {
                 
 
           
-                <ul className="domi_container" >
+                <ul className="domi_container" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
                  
                     <DomiContainer 
                     activities={this.props.activities}

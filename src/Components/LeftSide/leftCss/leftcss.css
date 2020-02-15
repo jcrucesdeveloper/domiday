@@ -12,18 +12,45 @@
 
 .todoList{
     background-color: #FFF;
-    margin-top: 1em;
+    margin-top: .5em;
     height: 100%;
+    overflow-y: scroll;
   
 }
 
 
 .todoContainer{
-   
+  
     padding: 0;
 }
 .todoItem{
 width: 100%;
 margin-left: 0;
-padding: 0;
+
+}
+
+
+.userItem{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.userItem div{
+    margin: 0.2em;
+    padding: 0.4em;
+}
+.userConfig{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.1em;
+    align-items: center;
+}
+
+.weekItem{
+    background-color: Azure;
+    height: 100%;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: space-between;
 }
