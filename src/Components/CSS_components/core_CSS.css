@@ -21,10 +21,10 @@ button {
   border: none;
   
   color: #4D3252;
-  border-radius: 6px;
+  border-radius: 8px;
  
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  box-shadow:  3px 2px 2px #a3a3a3, 
+  box-shadow:  1px 2px 1px #a3a3a3, 
                -5px -5px 3px #ffffff;
   font-size: 0.7em;
 

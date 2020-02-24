@@ -22,8 +22,10 @@ class BoxItem extends React.Component {
     render(){ 
         return(
             <li className="boxItem">
-                <input value={this.props.info} onChange={this.handleChangeItemValue}></input>
-                <ButtonX buttonFunction={this.handleDeleteItem}/>
+                <input value={this.props.info} onChange={this.handleChangeItemValue}>
+                </input>
+                
+            
             </li>
         )
     }

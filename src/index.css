@@ -37,3 +37,10 @@ code {
   background: #b30000; 
 }
 
+input:focus{
+  outline: none;
+}
+
+ul{
+  list-style: none;
+}
