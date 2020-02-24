@@ -1,7 +1,7 @@
 import React from 'react';
 import UserItem from './UserItem';
 import TodoList from './TodoList';
-import './leftCss/leftcss.css';
+import '../CSS_components/todo_CSS.css';
 
 
 class LeftCore extends React.Component {

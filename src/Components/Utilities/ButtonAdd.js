@@ -8,10 +8,9 @@ class ButtonAdd extends React.Component {
     }
     render(){ 
         return(
-            <div className="button add" onClick={this.handleClick}>
-                <div></div>
-                <div></div>             
-            </div>
+            <button className="button" onClick={this.handleClick}>
+             +
+            </button>
         )
     }
 

@@ -1,15 +1,13 @@
 import React from 'react';
-import LeftCore from './LeftSide/LeftCore';
-import MiddleCore from './middleSide/MiddleCore';
-import RightCore from './rightSide/RightCore';
-import './coreCss/core.css';
+import Container_Todo from './TodoList/Container_Todo';
+import Container_Domi from './DomiPrincipal/Container_Domi';
+import Container_Boxes from './Boxes/Container_Boxes';
+import './CSS_components/core_CSS.css'
 
 class Core extends React.Component {
 
     constructor(props){
         super(props);
-
-        
 
         this.state = {
 
@@ -436,25 +434,27 @@ changeItemValue = (category,id,message) => {
 
         return(
             <div className="core">
-                <LeftCore 
-                todoList={this.state.todo}
-                addTodoItemValue={this.addTodoItemValue}
-                deleteTodoItemValue={this.deleteTodoItemValue}
-                changeTodoItemValue={this.changeTodoItemValue}
-                userInfo={this.state.user}
-                />
-                <MiddleCore 
-                activities={this.state.activities}
-                changeActivityValue={this.changeActivityValue}
-                    
-                />
-                <RightCore 
+                 <Container_Boxes 
                 habits={this.state.habits} 
                 objectives={this.state.objectives} 
                 goals={this.state.goals}
                 changeItemValue={this.changeItemValue}
                 createItem={this.createItem}
                 deleteItem={this.deleteItem}
+                />
+               
+                <Container_Domi 
+                activities={this.state.activities}
+                changeActivityValue={this.changeActivityValue}
+                    
+                />
+               
+                 <Container_Todo 
+                todoList={this.state.todo}
+                addTodoItemValue={this.addTodoItemValue}
+                deleteTodoItemValue={this.deleteTodoItemValue}
+                changeTodoItemValue={this.changeTodoItemValue}
+                userInfo={this.state.user}
                 />
             </div>
         )

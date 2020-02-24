@@ -1,8 +1,8 @@
 import React from 'react';
 import TimeDay from './TimeDay';
 import DomiContainer from './DomiContainer';
-import {MonthToText, DayToText} from '../Helpers';
-import './midCss/middlecore.css';
+import {MonthToText, DayToText} from '../Utilities/Helpers';
+import '../CSS_components/domi_CSS.css';
 
 
 class MiddleCore extends React.Component {

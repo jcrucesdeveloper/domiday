@@ -1,5 +1,5 @@
 import React from 'react';
-import Days from '../Helpers';
+import Days from '../Utilities/Helpers';
 import Day from './Day';
 
 

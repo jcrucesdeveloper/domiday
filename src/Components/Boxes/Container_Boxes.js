@@ -1,12 +1,12 @@
 import React from 'react'
 import BoxProgress from './BoxProgress';
-import './rightCss/rightcore.css'
+import '../CSS_components/boxes_CSS.css';
 
 
 class RightCore extends React.Component {
     render(){
         return(
-            <div className="container containerBox">
+            <div className="container">
                 <BoxProgress 
                     info={this.props.habits}
                     createItem={this.props.createItem}

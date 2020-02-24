@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonX from '../ButtonX';
+import ButtonX from '../Utilities/ButtonX';
 
 
 class BoxItem extends React.Component {
