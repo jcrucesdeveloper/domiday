@@ -4,36 +4,25 @@
 }
 
 .container{
-    padding: 1.4em;
+    padding: 1.3em;
     height: 90vh;
   
     
 }
 
 
-
-
-
-
 /*Buttons CSS Neumorphism */
 button {
- 
   border: none;
-  
   color: #4D3252;
   border-radius: 8px;
- 
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
   box-shadow:  1px 2px 1px #a3a3a3, 
                -5px -5px 3px #ffffff;
   font-size: 0.7em;
-
- 
- 
   overflow: hidden;
   position: relative;
   text-transform: uppercase;
-  
   height: 2em;
   width: 2em;
 }
@@ -83,21 +72,19 @@ button:focus{
   outline: none;
 }
 
-
-
-
-  .buttonX div{
-    background-color: #A0A0A0;
-    width: 0.2em;
-    height: 1em;
-    border-radius: 2px;
-    position: absolute;
-    transform: rotateZ(-45deg);
-    
-    cursor: pointer;
+.buttonX{
+  background-color: #e8e8e8;
+  box-shadow: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 4px;
   
-  }
 
-  .buttonX :first-child {
-    transform: rotateZ(45deg);
-  }
+
+box-shadow: inset -4px 4px 4px  #E0E0E0, 
+            inset -3px -3px 3px #fff;
+}
+
+
+

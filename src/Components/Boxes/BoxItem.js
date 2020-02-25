@@ -24,6 +24,7 @@ class BoxItem extends React.Component {
             <li className="boxItem">
                 <input value={this.props.info} onChange={this.handleChangeItemValue}>
                 </input>
+                <ButtonX></ButtonX>
                 
             
             </li>

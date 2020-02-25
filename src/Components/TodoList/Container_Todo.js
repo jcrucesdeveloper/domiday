@@ -7,7 +7,7 @@ import '../CSS_components/todo_CSS.css';
 class LeftCore extends React.Component {
     render(){
         return(
-            <div className="container leftCore">
+            <div className="container todoContainer">
                 <UserItem userInfo={this.props.userInfo}/>
                 <TodoList 
                 todoList={this.props.todoList}

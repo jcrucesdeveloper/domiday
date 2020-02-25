@@ -40,34 +40,11 @@ class MiddleCore extends React.Component {
 
    
 
-    handleScroll = (event) => {
-        let new_y  = this.state.scrollValue;
-        let cursor = event.wheelDeltaY;
-
-        if (cursor > 0) new_y = new_y - 5;
-        else new_y = new_y + 5;
-
-        if(this.state.mouseOn){
-            this.setState({
-                scrollValue : new_y
-            });
-        }
-       
-        
-    }
-
-    handleMouseEnter = () => {
-        this.setState({mouseOn: true});
-    }
-     
-    handleMouseLeave = () => {
-        this.setState({mouseOn:false});
-    }
  
 
     render(){
         return(
-            <div className="container">
+            <div className="container domiDiv">
                 <TimeDay
                         dayNumber={this.state.dayNumber}
                         dayText ={this.state.dayText}
@@ -75,11 +52,7 @@ class MiddleCore extends React.Component {
                         monthText={this.state.monthText}
                         year = {this.state.year}
                 />
-                
-
-          
-                <ul className="domi_container" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-                 
+                <ul className="domi_container" >
                     <DomiContainer 
                     activities={this.props.activities}
                     changeActivityValue={this.props.changeActivityValue}

@@ -9,10 +9,9 @@ class ButtonX extends React.Component {
 
     render(){
         return(
-            <div className="buttonX button"  onClick={this.handleClick}>
-                <div></div>
-                <div></div>             
-            </div>
+            <button className="button buttonX" onClick={this.handleClick}>
+             X
+            </button>
         )
     }
 

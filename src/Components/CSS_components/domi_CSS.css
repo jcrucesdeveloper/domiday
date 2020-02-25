@@ -1,36 +1,56 @@
+.domiDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
 .timeday{
     text-align: center;
-    font-size: 1.4em;
-    border: 2px solid #000;
-    font-weight: bold;
+    font-size: 1.2em;
     padding: 0.3em;
     margin: 0px;
-    background-color: #e6f2ff;
-    -webkit-box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
-    -moz-box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
-    box-shadow: 13px 11px 3px -8px rgba(0,0,0,0.75);
+    width: 90%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+      
+    background: #dde1e7;
+	border-radius: 5px;
+	box-shadow: inset -3px -3px 7px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.692);
+ 
+    
 }
 
 .timeday p {
     margin: 0.08em;
-    font-size: 1.3em;
+    font-size: 1.2em;
 
     
 }
 
+.timeday button{
+    border-radius: 50%;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow:  1px 3px 4px #b0b0b0, 
+                -3px -3px 5px #ffffff;
+}
+
+
+
+
+
 
 .domi_container{
-    background-color: #F0F8FF;
-    width: 90%;
+    
+    width: 95%;
     margin: 1em;
-    padding: 1.3em;
+    padding:1.4em;
     height: 70vh;
-    overflow: hidden;
-   
- 
+    overflow-y: scroll;
+    
+	border-radius: 5px;
+	box-shadow: inset -3px -3px 7px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.692);
     
 }
 
@@ -38,32 +58,35 @@
 
 .domi_item{
     
-    position: relative;
+   
 
     font-size: 1.1em;
-    margin: 0.7em;
-    list-style-type: none;
+    margin: 1em;
+    
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    border: 2px solid #D8D8D8 ;
     height: 10vh;
+    background: #dde1e7;
+	border-radius: 5px;
+	box-shadow: -0px -1px 7px #ffffffb2, 2px 2px 5px rgba(94, 104, 121, 0.945);
 }
 
 .timepassed{
-    opacity: .3;
+    opacity: .4;
 }
 
 .domi_item div{
     padding: 1em;
     background-color: #E8E8E8;
-    font-weight: bold;
+   
     
 }
 
 .domi_item input {
     width: 100%;   
     font-size: .9em;
-    font-weight: bold;
+    
     text-align: center;
     border: 0;
     

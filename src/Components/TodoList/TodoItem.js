@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonX from '../Utilities/ButtonX'
+import ButtonX from '../Utilities/ButtonX';
 
 class TodoItem extends React.Component {
 
