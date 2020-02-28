@@ -3,6 +3,7 @@ import ButtonAdd from '../Utilities/ButtonAdd';
 import TodoItem from './TodoItem';
 import styled from 'styled-components';
 import TitleDiv from '../ReusableComponents/TitleDiv';
+import {Droppable} from 'react-beautiful-dnd';
 
 const TodoDiv = styled.div`
     width: 100%;
@@ -25,29 +26,37 @@ const TodoListContainer = styled.ul`
 class TodoList extends React.Component {
     render(){
         return(
-            <TodoDiv>
-                    <TitleDiv> 
-                        <span className="tittleType">To Do list </span>
-                        <ButtonAdd buttonFunction={this.props.addTodoItemValue}></ButtonAdd>
-                    </TitleDiv>
+             
+                 <TodoDiv>
+                        <TitleDiv> 
+                            <span className="tittleType">To Do list </span>
+                            <ButtonAdd buttonFunction={this.props.addTodoItemValue}></ButtonAdd>
+                        </TitleDiv>
 
 
-                <TodoListContainer>
-                    {this.props.todoList.map((item) => (<TodoItem 
-                    key={item.id}
-                    id={item.id}
-                    info={item.info}
-                    deleteTodoItemValue={this.props.deleteTodoItemValue}
-                    changeTodoItemValue={this.props.changeTodoItemValue}
+                <Droppable droppableId="todoList">                    
+               {provided => ( 
+                        <TodoListContainer
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                        >
+                                        {this.props.todoList.map((item,index) => (<TodoItem 
+                                        key={item.id}
+                                        id={item.id}
+                                        index={index}
+                                        info={item.info}
+                                        deleteTodoItemValue={this.props.deleteTodoItemValue}
+                                        changeTodoItemValue={this.props.changeTodoItemValue}
 
-                    />))}
-                
-                </TodoListContainer>
-            </TodoDiv>
-        )
-    }
+                                        />))}
+                                        {provided.placeholder}
+                                    
+                                    </TodoListContainer>)}
+                    </Droppable>
 
-
-}
-
+                </TodoDiv>)
+            }
+        }
+        
+    
 export default TodoList;

@@ -3,10 +3,12 @@ import ButtonX from '../Utilities/ButtonX';
 import styled from 'styled-components';
 import BoxDiv from '../ReusableComponents/BoxDiv';
 import ButtonIcon from '../Utilities/ButtonIcon';
+import {Draggable} from 'react-beautiful-dnd';
 
 const TodoItemDiv = styled(BoxDiv)`
-    height: 7%!important;
+  
     padding: ${props => props.padding || '0'};
+
     input {
         width: 100%;
     }
@@ -35,18 +37,33 @@ class TodoItem extends React.Component {
 
     render(){
         return(
-            <TodoItemDiv padding={this.state.padding} >
 
+            <Draggable draggableId={`todo-${this.props.id}`} index={this.props.index}>
+                {provided => (
+                    <TodoItemDiv 
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    padding={this.state.padding}
+                    ref={provided.innerRef} 
+                    >
                     {
                         this.state.typing === true ? null : this.props.info
                     }
-                {this.state.typing === true ? <input  
+                    {   
+                        this.state.typing === true ? <input  
                         onKeyDown={this.handleEnter}
-                        autoFocus/> : null }
+                        autoFocus/> : null 
+                    }
+                    <ButtonIcon></ButtonIcon>
+                    </TodoItemDiv>                    
 
-               
-                <ButtonIcon></ButtonIcon>
-            </TodoItemDiv>
+
+
+
+                )}
+              
+
+            </Draggable>
         )
     }
 
