@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../ReusableComponents/Button';
 
 
 class ButtonAdd extends React.Component {
@@ -8,9 +9,9 @@ class ButtonAdd extends React.Component {
     }
     render(){ 
         return(
-            <button className="button" onClick={this.handleClick}>
-             +
-            </button>
+            <Button onClick={this.handleClick}>
+            +
+            </Button>
         )
     }
 

@@ -1,13 +1,22 @@
 import React from 'react';
 import UserItem from './UserItem';
 import TodoList from './TodoList';
-import '../CSS_components/todo_CSS.css';
+import styled from 'styled-components';
+import Container from '../ReusableComponents/Container';
+
+
+const TodoContainerDiv = styled(Container)`
+    display: grid;
+    grid-template-rows: 2fr 5fr;
+
+`;
+
 
 
 class LeftCore extends React.Component {
     render(){
         return(
-            <div className="container todoContainer">
+            <TodoContainerDiv>
                 <UserItem userInfo={this.props.userInfo}/>
                 <TodoList 
                 todoList={this.props.todoList}
@@ -16,7 +25,7 @@ class LeftCore extends React.Component {
                 changeTodoItemValue={this.props.changeTodoItemValue}
                 
                 />
-            </div>
+            </TodoContainerDiv>
         )
     }
 

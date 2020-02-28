@@ -1,6 +1,15 @@
 import React from 'react';
 import Days from '../Utilities/Helpers';
 import Day from './Day';
+import styled from 'styled-components';
+
+const WeekDiv = styled.div`
+    padding: 1em;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: space-between;
+`;
+
 
 
 class WeekItem extends React.Component {
@@ -21,9 +30,9 @@ class WeekItem extends React.Component {
     }
     render(){
         return(
-            <div className="weekItem">
+            <WeekDiv>
               {Days.map((item,x) => (<Day key={x} letterDay={item} isTheDay={ this.state.day ==x ? '⬆' : ''} />))}
-            </div>
+            </WeekDiv>
         )
     }
 

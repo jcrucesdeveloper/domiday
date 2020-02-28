@@ -2,7 +2,25 @@ import React from 'react';
 import TimeDay from './TimeDay';
 import DomiContainer from './DomiContainer';
 import {MonthToText, DayToText} from '../Utilities/Helpers';
-import '../CSS_components/domi_CSS.css';
+import Container from '../ReusableComponents/Container';
+import styled from 'styled-components';
+
+const ContainerDomi = styled(Container)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const DomiUl = styled.ul`
+    width: 95%;
+    margin: 1em;
+    padding:1.4em;
+    height: 70vh;
+    overflow-y: scroll;
+    border-radius: 5px;
+    box-shadow: inset -3px -3px 7px #ffffffb0, inset 3px 3px 5px rgba(94, 104, 121, 0.692);
+
+`;
 
 
 class MiddleCore extends React.Component {
@@ -11,8 +29,6 @@ class MiddleCore extends React.Component {
         super(props);
 
         const clock = new Date();  
-
-        //Variables for date
         let dayN = clock.getDate(); 
         let dayT = DayToText(clock.getDay());
         let monthN = clock.getMonth();
@@ -44,7 +60,7 @@ class MiddleCore extends React.Component {
 
     render(){
         return(
-            <div className="container domiDiv">
+            <ContainerDomi>
                 <TimeDay
                         dayNumber={this.state.dayNumber}
                         dayText ={this.state.dayText}
@@ -52,7 +68,7 @@ class MiddleCore extends React.Component {
                         monthText={this.state.monthText}
                         year = {this.state.year}
                 />
-                <ul className="domi_container" >
+                <DomiUl>
                     <DomiContainer 
                     activities={this.props.activities}
                     changeActivityValue={this.props.changeActivityValue}
@@ -60,8 +76,8 @@ class MiddleCore extends React.Component {
                     currentHour={this.state.hour}
                     />       
                        
-                </ul> 
-            </div>
+                </DomiUl> 
+            </ContainerDomi>
         )
     }
 

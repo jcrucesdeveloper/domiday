@@ -1,8 +1,22 @@
 import React from 'react';
-import Container_Todo from './TodoList/Container_Todo';
-import Container_Domi from './DomiPrincipal/Container_Domi';
-import Container_Boxes from './Boxes/Container_Boxes';
-import './CSS_components/core_CSS.css'
+
+import ContainerTodo from './TodoList/ContainerTodo';
+import ContainerDomi from './DomiPrincipal/ContainerDomi';
+import ContainerBoxes from './Boxes/ContainerBoxes';
+
+import {DragDropContext} from 'react-beautiful-dnd';
+import styled from 'styled-components';
+
+
+
+
+const CoreDiv = styled.div`
+    display: grid;
+    grid-template-columns: 3fr 6fr 3fr;
+
+`;
+
+
 
 class Core extends React.Component {
 
@@ -265,10 +279,7 @@ changeActivityValue = (id,message) => {
 
 
 
-// RIGH CORE
-
-
-
+// RIGHT CORE
 changeItemValue = (category,id,message) => {
 
     if(category === 'habits'){
@@ -423,40 +434,42 @@ changeItemValue = (category,id,message) => {
    }
 
 
-   
+   onDragEnd = result => {
+    //Todo: keep the state
+   }
 
+  
 
 
      
     render(){
-
-       
-
-        return(
-            <div className="core">
-                 <Container_Boxes 
-                habits={this.state.habits} 
-                objectives={this.state.objectives} 
-                goals={this.state.goals}
-                changeItemValue={this.changeItemValue}
-                createItem={this.createItem}
-                deleteItem={this.deleteItem}
-                />
-               
-                <Container_Domi 
-                activities={this.state.activities}
-                changeActivityValue={this.changeActivityValue}
-                    
-                />
-               
-                 <Container_Todo 
-                todoList={this.state.todo}
-                addTodoItemValue={this.addTodoItemValue}
-                deleteTodoItemValue={this.deleteTodoItemValue}
-                changeTodoItemValue={this.changeTodoItemValue}
-                userInfo={this.state.user}
-                />
-            </div>
+    return(
+            <DragDropContext onDragEnd={this.onDragEnd}>
+                <CoreDiv>
+                    <ContainerBoxes 
+                    habits={this.state.habits} 
+                    objectives={this.state.objectives} 
+                    goals={this.state.goals}
+                    changeItemValue={this.changeItemValue}
+                    createItem={this.createItem}
+                    deleteItem={this.deleteItem}
+                    />
+                
+                    <ContainerDomi 
+                    activities={this.state.activities}
+                    changeActivityValue={this.changeActivityValue}
+                        
+                    />
+                
+                    <ContainerTodo 
+                    todoList={this.state.todo}
+                    addTodoItemValue={this.addTodoItemValue}
+                    deleteTodoItemValue={this.deleteTodoItemValue}
+                    changeTodoItemValue={this.changeTodoItemValue}
+                    userInfo={this.state.user}
+                    />
+                </CoreDiv>
+            </DragDropContext>
         )
     }
 
