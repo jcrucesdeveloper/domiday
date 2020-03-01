@@ -4,10 +4,11 @@ import Day from './Day';
 import styled from 'styled-components';
 
 const WeekDiv = styled.div`
-    padding: 1em;
+    padding: 0.5em;
     overflow-x: scroll;
     display: flex;
     justify-content: space-between;
+
 `;
 
 
