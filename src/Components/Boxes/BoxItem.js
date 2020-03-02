@@ -17,14 +17,7 @@ class BoxItem extends React.Component {
         padding: '0em'
     }
 
-    handleDeleteItem = () =>{
-        const {category,id} = this.props;
-        this.props.deleteItem(category,id);
-    }
-
-   
-
-
+    
     handleEnter = (e) => {
         if(e.keyCode === 13){
          

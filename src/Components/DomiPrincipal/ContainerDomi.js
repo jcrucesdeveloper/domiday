@@ -24,58 +24,12 @@ const DomiUl = styled.ul`
 
 
 class MiddleCore extends React.Component {
-
-    constructor(props){
-        super(props);
-
-        const clock = new Date();  
-        let dayN = clock.getDate(); 
-        let dayT = DayToText(clock.getDay());
-        let monthN = clock.getMonth();
-        let monthT = MonthToText(monthN);
-        let yearN = clock.getFullYear();
-        let real_hour = clock.getHours();
-       
-        let scrollDefaultValue = (real_hour*10) +10 ;
-
-
-
-        this.state = {
-            scrollValue : scrollDefaultValue,
-            dayNumber: dayN,
-            dayText: dayT,
-            month: monthN,
-            monthText: monthT,
-            year: yearN,
-            hour: real_hour,
-            mouseOn: false
-        }
-        window.addEventListener('wheel',this.handleScroll);
-        
-    }
-
-   
-
- 
-
     render(){
         return(
             <ContainerDomi>
-                <TimeDay
-                        dayNumber={this.state.dayNumber}
-                        dayText ={this.state.dayText}
-                        month = {this.state.month}
-                        monthText={this.state.monthText}
-                        year = {this.state.year}
-                />
+                <TimeDay/>
                 <DomiUl>
-                    <DomiContainer 
-                    activities={this.props.activities}
-                    changeActivityValue={this.props.changeActivityValue}
-                    scrollValue={this.state.scrollValue}
-                    currentHour={this.state.hour}
-                    />       
-                       
+                    <DomiContainer/>       
                 </DomiUl> 
             </ContainerDomi>
         )

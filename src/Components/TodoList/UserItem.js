@@ -49,7 +49,7 @@ class UserItem extends React.Component {
         return(
             <UserDiv>
                 <UserConfigDiv>
-                    <p>Welcome back {this.props.userInfo.firstName}</p>
+                    <p>Welcome back </p>
                     <div>
                         <UserSquare ></UserSquare>
                         <Calendar></Calendar>

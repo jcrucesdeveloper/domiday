@@ -30,7 +30,7 @@ class TodoList extends React.Component {
                  <TodoDiv>
                         <TitleDiv> 
                             <span className="tittleType">To Do list </span>
-                            <ButtonAdd buttonFunction={this.props.addTodoItemValue}></ButtonAdd>
+                            <ButtonAdd></ButtonAdd>
                         </TitleDiv>
 
 
@@ -40,16 +40,7 @@ class TodoList extends React.Component {
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                         >
-                                        {this.props.todoList.map((item,index) => (<TodoItem 
-                                        key={item.id}
-                                        id={item.id}
-                                        index={index}
-                                        info={item.info}
-                                        deleteTodoItemValue={this.props.deleteTodoItemValue}
-                                        changeTodoItemValue={this.props.changeTodoItemValue}
 
-                                        />))}
-                                        {provided.placeholder}
                                     
                                     </TodoListContainer>)}
                     </Droppable>

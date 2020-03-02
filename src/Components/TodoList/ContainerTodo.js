@@ -17,14 +17,8 @@ class LeftCore extends React.Component {
     render(){
         return(
             <TodoContainerDiv>
-                <UserItem userInfo={this.props.userInfo}/>
-                <TodoList 
-                todoList={this.props.todoList}
-                addTodoItemValue={this.props.addTodoItemValue}
-                deleteTodoItemValue={this.props.deleteTodoItemValue}
-                changeTodoItemValue={this.props.changeTodoItemValue}
-                
-                />
+                <UserItem />
+                <TodoList />
             </TodoContainerDiv>
         )
     }

@@ -26,7 +26,8 @@ class TodoItem extends React.Component {
         if(e.keyCode === 13){
          
             const newValue = e.target.value;
-            this.props.changeTodoItemValue(this.props.id,newValue);
+        
+            
             this.setState({
                 typing: false,
                 padding: '0.3em'            
@@ -35,10 +36,12 @@ class TodoItem extends React.Component {
         }
     }
 
+
+
     render(){
         return(
 
-            <Draggable draggableId={`todo-${this.props.id}`} index={this.props.index}>
+            <Draggable>
                 {provided => (
                     <TodoItemDiv 
                     {...provided.draggableProps}

@@ -4,6 +4,7 @@ import ButtonAdd  from '../Utilities/ButtonAdd';
 import {Droppable} from 'react-beautiful-dnd';
 import styled from  'styled-components';
 import TitleDiv from '../ReusableComponents/TitleDiv';
+import {connect} from 'react-redux';
 
 
 
@@ -28,61 +29,38 @@ const ProgressContainer = styled.ul`
 
 class BoxProgress extends React.Component {
     render(){
-        const { name, list} = this.props.info;
-        const handleCreateItem = () => {
-            this.props.createItem(name);
-        }
- 
         return(
-           
+            <BoxDiv>
+                <TitleDiv> 
+                    <span></span>
+                    <ButtonAdd></ButtonAdd>
+                </TitleDiv>
 
-               
-                    <BoxDiv>
-                        <TitleDiv> 
-                            <span>{name}  {this.props.icon}</span>
-                           
-                            <ButtonAdd buttonFunction={handleCreateItem}></ButtonAdd>
-                        </TitleDiv>
-
-                <Droppable
-                    droppableId={name}
-                    >
-                        {(provided) => (
-                             <ProgressContainer
-                                ref={provided.innerRef}
-                                {...provided.droppableProps}
-                                >
-                             {list.map((item, index) => 
-                                 <BoxItem 
-                                 key={item.id} 
-                                 index={index}
-                                 id={item.id} 
-                                 deleteItem={this.props.deleteItem}
-                                 category={name}
-                                 info={item.info}
-                                 changeItemValue={this.props.changeItemValue}
-                                 idDraggable={`element-${index}`}
-                                 
-                                 />)}
-                                 {provided.placeholder}
-                          </ProgressContainer>
+                <Droppable>
+                    {(provided) => (
+                        <ProgressContainer
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        >
+                        
 
 
-                        )}
+                        {provided.placeholder}
+                    </ProgressContainer>
 
-               
 
+                    )}
                 </Droppable>
-                </BoxDiv>
+            </BoxDiv>
 
-                
-                
-            
-          
         )
     }
 
 
 }
 
-export default BoxProgress;
+const mapStateToProps = state => ({
+    
+});
+
+export default connect(mapStateToProps,null)(BoxProgress);

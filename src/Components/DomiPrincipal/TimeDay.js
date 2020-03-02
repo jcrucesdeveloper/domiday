@@ -46,8 +46,6 @@ class TimeDay extends React.Component {
    
     render(){
 
-        const {monthText,dayNumber,year,dayText} = this.props
-        
         return(
             <TimeDayDiv>
                     <TimeDayButtonDiv>
@@ -58,8 +56,8 @@ class TimeDay extends React.Component {
                             </TimeDayButton>
                         </TimeDayButtonDiv>
                         <div>
-                                <TimeDayP>{monthText} {dayNumber}, {year}</TimeDayP>
-                                <TimeDayP>{dayText}</TimeDayP>     
+                                <TimeDayP></TimeDayP>
+                                <TimeDayP></TimeDayP>     
                         </div>
                     <TimeDayButtonDiv>
                             <TimeDayButton>
