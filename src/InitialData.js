@@ -156,17 +156,19 @@ const initialData = {
     boxes: [
         {
             category: 'Habits',
-            boxItems: [{}],
+            boxItems: {
+
+            },
             boxItemsIds: []
         },
         {
             category: 'Objectives',
-            boxItems: [{}],
+            boxItems: {},
             boxItemsIds: []
         },
         {
             category: 'Goals',
-            boxItems: [{}],
+            boxItems: {},
             boxItemsIds: []
         },
     ]

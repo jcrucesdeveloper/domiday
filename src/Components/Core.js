@@ -7,8 +7,8 @@ import ContainerBoxes from './Boxes/ContainerBoxes';
 import {DragDropContext} from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
-import {Provider} from 'react-redux';
-import store from '../store';
+import {connect} from 'react-redux';
+import {dragSameBox} from '../actions/boxesActions';
 
 
 
@@ -25,24 +25,46 @@ class Core extends React.Component {
 
  
     onDragEnd = result => {
-    //Todo: keep the state
+        // 5 Cases : 
+
+        const {destination, source, draggableId} = result;
+
+        // 1 - No destination
+        if(!destination){ return;}
+
+        // 2 - Same destination
+        if( source.droppableId ===  destination.droppableId && source.index == destination.index) {return;}
+        
+        // 3 - Same column
+        if(source.droppableId ===  destination.droppableId && source.index !== destination.index){
+            console.log(this.props.state);
+            dragSameBox(destination.droppableId,source.index, destination.index);
+           
+            
+
+        }
+        
     }
     
     render(){
     return(
-        <Provider store={store}>
+       
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <CoreDiv>
+                   
                         <ContainerBoxes />
                         <ContainerDomi  />
                         <ContainerTodo  />
                     </CoreDiv>
                 </DragDropContext>
-            </Provider>
+         
         )
     }
 
 
 }
+const mapStateToProps = state => ({
+    state
+});
 
-export default Core;
+export default connect(mapStateToProps,{dragSameBox})(Core);

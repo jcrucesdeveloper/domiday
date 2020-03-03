@@ -5,6 +5,7 @@ import {Droppable} from 'react-beautiful-dnd';
 import styled from  'styled-components';
 import TitleDiv from '../ReusableComponents/TitleDiv';
 import {connect} from 'react-redux';
+import {addBoxItem} from '../../actions/boxesActions';
 
 
 
@@ -27,23 +28,56 @@ const ProgressContainer = styled.ul`
 
 
 
+
 class BoxProgress extends React.Component {
+
+    handleAddItem = () => {
+
+        const newId = this.props.items.boxItemsIds.length;
+        const newIndex = `${this.props.category}-${newId}`;
+    
+        const newItem = {
+                id: newId,
+                info: '',
+                color: '#fffff'
+            
+        }
+    
+        this.props.addBoxItem(newItem,newIndex,this.props.category);
+    }
+
     render(){
         return(
             <BoxDiv>
                 <TitleDiv> 
-                    <span></span>
-                    <ButtonAdd></ButtonAdd>
+                    <span>{this.props.category}</span>
+                    
+                    <ButtonAdd buttonFunction={this.handleAddItem}></ButtonAdd>
                 </TitleDiv>
 
-                <Droppable>
+                <Droppable droppableId={this.props.category} >
                     {(provided) => (
                         <ProgressContainer
                         ref={provided.innerRef}
                         {...provided.droppableProps}
+                       
                         >
                         
 
+                   
+                        {
+                            this.props.items.boxItemsIds.map((boxids,index) => {
+                                const boxItem = this.props.items.boxItems[boxids];
+                                return <BoxItem 
+                                        category={this.props.category} 
+                                        key={boxItem.id}
+                                        id={boxids}
+                                        index={index}
+                                
+                                ></BoxItem>
+                                
+                                })
+                        }
 
                         {provided.placeholder}
                     </ProgressContainer>
@@ -59,8 +93,10 @@ class BoxProgress extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
-    
+const mapStateToProps = (state, ownProps) => ({
+    items:  state.boxes.find(box => box.category === ownProps.category)
 });
 
-export default connect(mapStateToProps,null)(BoxProgress);
+
+
+export default connect(mapStateToProps,{addBoxItem})(BoxProgress);

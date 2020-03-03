@@ -3,6 +3,8 @@ import {Draggable} from 'react-beautiful-dnd';
 import ButtonIcon from '../Utilities/ButtonIcon';
 import styled from 'styled-components';
 import BoxDiv from '../ReusableComponents/BoxDiv';
+import {connect} from 'react-redux';
+import {changeInfoBoxItem} from '../../actions/boxesActions';
 
 const BoxDivEdditable = styled(BoxDiv)`
     padding: ${props => props.padding || '0'}
@@ -20,10 +22,12 @@ class BoxItem extends React.Component {
     
     handleEnter = (e) => {
         if(e.keyCode === 13){
-         
             const newValue = e.target.value;
-            const {category,id} = this.props;
-            this.props.changeItemValue(category,id,newValue);
+      
+            
+  
+
+
             this.setState({
                 typing: false,
                 padding: '0.4em'            
@@ -36,7 +40,7 @@ class BoxItem extends React.Component {
     render(){ 
         return(
             <Draggable
-                draggableId={this.props.idDraggable}
+                draggableId={this.props.id}
                 index={this.props.index}
             >
                 {provided => (
@@ -48,13 +52,15 @@ class BoxItem extends React.Component {
                     
                     >
                     {
-                        this.state.type === true ? null : this.props.info
+                        
+                        this.state.typing === true ? null : this.props.data.info
                     }
-
+                   
+                
                     {this.state.typing === true ? <input  
                     onKeyDown={this.handleEnter}
                     autoFocus/> : null }
-                
+                  
                     <ButtonIcon></ButtonIcon>
                     
                 
@@ -68,4 +74,8 @@ class BoxItem extends React.Component {
 
 }
 
-export default BoxItem;
+const mapStateToProps = (state,ownProps) => ({
+    data : state.boxes.find(box => box.category === ownProps.category).boxItems[`${ownProps.category}-${ownProps.index}`]
+});
+
+export default connect(mapStateToProps, {changeInfoBoxItem})(BoxItem);

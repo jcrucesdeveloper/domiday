@@ -23,3 +23,11 @@ export const EDIT_TODO = 'EDIT_TODO';
 export const MENU_ACTION = 'MENU_ACTION';
 export const USER_ACTION = 'USER_ACTION';
 export const CALENDAR_ACTION = 'CALENDAR_ACTION';
+
+
+//Draggable Actions
+export const DRAG_SAME_BOX = 'DRAG_SAME_BOX';
+export const DRAG_DIFFERENT_BOX = 'DRAG_DIFFERENT_BOX';
+export const DRAG_DOMI_ITEMS = 'DRAG_DIFFERENT_BOX';
+
+

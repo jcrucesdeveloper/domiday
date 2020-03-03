@@ -8,7 +8,7 @@ class ContainerBoxes extends React.Component {
     render(){
         return(
             <Container>
-              {console.log(this.props.boxes)}
+              {this.props.boxes.map((item) => <BoxProgress category={item.category} key={item.category}></BoxProgress>)}
             </Container>
         )
     }
@@ -17,7 +17,7 @@ class ContainerBoxes extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    boxes: state
+    boxes: state.boxes
 });
 
 export default connect(mapStateToProps,null)(ContainerBoxes);
