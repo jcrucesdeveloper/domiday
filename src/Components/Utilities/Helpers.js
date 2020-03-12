@@ -1,5 +1,5 @@
 function es_bisiesto(year){
-	return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    return year % 4 === 0 & year % 100 !== 0 || year % 400 === 0;
 }
 
 
@@ -34,7 +34,7 @@ const MonthToText = function (x){
     if(x === 9) return "October";
     if(x === 10) return "November";
     if(x === 11) return "December";
-    return null;
+    return 'December';
 
 }
 

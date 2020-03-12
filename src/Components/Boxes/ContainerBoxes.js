@@ -5,10 +5,22 @@ import {connect} from 'react-redux';
 
 
 class ContainerBoxes extends React.Component {
+  
+   
+
     render(){
+        //Props state: -> boxes [{}] - boxesIds:[ids]
+        const {infoBoxes} = this.props;
+
         return(
             <Container>
-              {this.props.boxes.map((item) => <BoxProgress category={item.category} key={item.category}></BoxProgress>)}
+                {
+                    this.props.infoBoxes.map(idBox => {
+
+                        const currentBox = this.props.boxes[idBox];
+                        return <BoxProgress data={currentBox} key={currentBox.id}></BoxProgress>
+                    })
+                }
             </Container>
         )
     }
@@ -17,7 +29,9 @@ class ContainerBoxes extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    boxes: state.boxes
+    boxes: state.boxes,
+    infoBoxes: state.user.boxIds
+    
 });
 
 export default connect(mapStateToProps,null)(ContainerBoxes);

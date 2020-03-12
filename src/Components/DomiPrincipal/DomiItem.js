@@ -1,34 +1,48 @@
-import React from 'react'
+import React, { Component } from 'react'
+import DomiInfo from './DomiInfo';
 import styled from 'styled-components';
+import {Droppable} from 'react-beautiful-dnd';
 
-const DomiItemLi = styled.li`
-    font-size: 1.1em;
-    margin: 1em;
-
+const DomiDiv = styled.div`
     display: flex;
-    justify-content: space-between;
-    border: 2px solid #D8D8D8 ;
-    height: 10vh;
-    background: #dde1e7;
-    border-radius: 5px;
-    box-shadow: -0px -1px 7px #ffffffb2, 2px 2px 5px rgba(94, 104, 121, 0.945);
+    flex-direction: column;
+    align-items:center;
+    margin-top: 1em;
+
+
+`;
+const DomiActivitiesContainer= styled.ul`
+    background-color: white;
+    min-height: 0.001em;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    border-radius: 2px;
 `;
 
 
+class DomiItem extends Component {
+    render() {
+        return (
+            <DomiDiv>
+                <DomiInfo hour={this.props.hour}></DomiInfo>
+                <Droppable droppableId={`domi-${this.props.hour}`}>
+              { (provided) =>( 
+                    <DomiActivitiesContainer
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                    >
 
-class DomiItem extends React.Component {
-     
 
-    render(){      
-        return(
-            <DomiItemLi>
-                <div></div>
-                <div></div>
-            </DomiItemLi>
+
+                          {provided.placeholder}
+                    </DomiActivitiesContainer>)
+                    
+                    }
+                </Droppable>
+            </DomiDiv>
         )
     }
-
-
 }
 
-export default DomiItem;
+export default DomiItem;    

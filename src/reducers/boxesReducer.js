@@ -1,37 +1,26 @@
-import {ADD_BOX_ITEM,DELETE_BOX_ITEM,EDIT_BOX_ITEM,GET_BOX_ITEMS} from '../actions/types';
-
-/*
-ADD_BOX_ITEM:
-  item,
-  index,
-  category
-
-
-*/
-
-
-const initialState= [];
+import {ADD_DOMI_TO_BOX, TEST_CHANGE, DRAG_SAME_BOX} from '../actions/types';
+const initialState = {};
 
 export default function (boxes = initialState ,action){
-
-  switch(action.type){
-    case ADD_BOX_ITEM:
-      
     
-      return boxes.map( box => (box.category === action.category ? {...box, boxItems: Object.assign({...box.boxItems},{[action.index]: action.item}), boxItemsIds: [...box.boxItemsIds, action.index]} : box))
-      
-    case EDIT_BOX_ITEM: 
-    
-      return 
-    default:
-      return boxes;
 
+    switch(action.type){   
+        case ADD_DOMI_TO_BOX:
+            const currentBox = Object.assign({}, boxes[action.boxId]);
+            const newBoxItemsIds = currentBox.boxItemsIds;
+            newBoxItemsIds.push(action.domiId);
+            return Object.assign({},boxes, {[action.boxId]:currentBox});
+        case DRAG_SAME_BOX: 
+            const boxDrag = Object.assign({}, boxes[action.boxId]);
+            const updatedBoxItemdsIds =boxDrag.boxItemsIds;
+            updatedBoxItemdsIds.splice(action.sourceIndex,1);
+            updatedBoxItemdsIds.splice(action.destinationIndex,0,action.dragId);
+            return Object.assign({},boxes,{[action.boxId] : boxDrag});
+        case TEST_CHANGE: 
+            return boxes;
 
-
-
-  }
- 
-  
-   
+        default: 
+            return boxes;
+    }
 
 }

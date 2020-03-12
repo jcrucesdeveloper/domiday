@@ -5,8 +5,8 @@ import {UserSquare, Menu,Calendar} from '../ReusableComponents/Icons';
 
 
 const UserDiv = styled.div`
-     width: 100%;
-    height: 20vh;
+    width: 100%;
+    margin-bottom: 1em;
     border-radius: 4px;
     background: #dde1e7;
     border-radius: 5px;
@@ -51,7 +51,7 @@ class UserItem extends React.Component {
                 <UserConfigDiv>
                     <p>Welcome back </p>
                     <div>
-                        <UserSquare ></UserSquare>
+                        <UserSquare></UserSquare>
                         <Calendar></Calendar>
                         <Menu></Menu>
                      

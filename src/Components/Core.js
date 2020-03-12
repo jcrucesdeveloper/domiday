@@ -8,7 +8,9 @@ import {DragDropContext} from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 import {connect} from 'react-redux';
+
 import {dragSameBox} from '../actions/boxesActions';
+
 
 
 
@@ -21,29 +23,24 @@ const CoreDiv = styled.div`
 
 
 
-class Core extends React.Component {
+class Core extends React.Component {   
+    
 
- 
-    onDragEnd = result => {
-        // 5 Cases : 
+    //draggableId, type, source, destination
+    onDragEnd = result => { 
+        const {source,destination,draggableId} = result;
+        if(result.destination === null) return;
+        if(source.index === destination.index && source.draggableId === destination.draggableId) return;
 
-        const {destination, source, draggableId} = result;
-
-        // 1 - No destination
-        if(!destination){ return;}
-
-        // 2 - Same destination
-        if( source.droppableId ===  destination.droppableId && source.index == destination.index) {return;}
-        
-        // 3 - Same column
-        if(source.droppableId ===  destination.droppableId && source.index !== destination.index){
-            console.log(this.props.state);
-            dragSameBox(destination.droppableId,source.index, destination.index);
-           
+        if(source.index !== destination.index && source.draggableId === destination.draggableId){
+            //Dragableid, indexStart, indexEnd, droppableId
+            this.props.dragSameBox(draggableId,source.index,destination.index,source.droppableId);
             
-
+            
         }
-        
+        //Drag same box
+        console.log(result);
+    
     }
     
     render(){
@@ -51,7 +48,6 @@ class Core extends React.Component {
        
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <CoreDiv>
-                   
                         <ContainerBoxes />
                         <ContainerDomi  />
                         <ContainerTodo  />
@@ -64,7 +60,7 @@ class Core extends React.Component {
 
 }
 const mapStateToProps = state => ({
-    state
+    info: state
 });
 
 export default connect(mapStateToProps,{dragSameBox})(Core);

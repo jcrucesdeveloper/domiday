@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import {CheveronLeft, CheveronRight} from '../ReusableComponents/Icons';
 import Button from '../ReusableComponents/Button';
 
+import {connect} from 'react-redux';
+
 
 
 const TimeDayDiv = styled.div`
@@ -40,13 +42,18 @@ const TimeDayButton = styled(Button)`
   
 `;
 
+// Month String - Day Int - Year Int 
+// Day String
 
 
 class TimeDay extends React.Component {
-   
+    
     render(){
 
+        const {currentDay,currentDayString, monthString,year} = this.props.dayInfo;
+
         return(
+            
             <TimeDayDiv>
                     <TimeDayButtonDiv>
                         <TimeDayButton >
@@ -56,8 +63,8 @@ class TimeDay extends React.Component {
                             </TimeDayButton>
                         </TimeDayButtonDiv>
                         <div>
-                                <TimeDayP></TimeDayP>
-                                <TimeDayP></TimeDayP>     
+                                <TimeDayP>{monthString} {currentDay}, {year}</TimeDayP>
+                                <TimeDayP>{currentDayString}</TimeDayP>     
                         </div>
                     <TimeDayButtonDiv>
                             <TimeDayButton>
@@ -71,4 +78,8 @@ class TimeDay extends React.Component {
 
 }
 
-export default TimeDay;
+const mapStateToProps = state => ({
+    dayInfo: state.day
+});
+
+export default connect(mapStateToProps,null)(TimeDay);
