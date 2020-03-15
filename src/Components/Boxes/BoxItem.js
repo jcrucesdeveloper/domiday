@@ -2,17 +2,20 @@ import React from 'react'
 import {Draggable} from 'react-beautiful-dnd';
 import ButtonIcon from '../Utilities/ButtonIcon';
 import styled from 'styled-components';
+import {slideInLeft} from 'react-animations';
+
 import BoxDiv from '../ReusableComponents/BoxDiv';
 import {connect} from 'react-redux';
 
-import {editContentDomi} from '../../actions/domiActions';
+import {editContentDomi} from '../../actions/domiItemsActions';
 
 
 
 
 const BoxDivEdditable = styled(BoxDiv)`
-    
+   
 `;
+
 
 const ContentP = styled.p`
 margin :0;
@@ -23,9 +26,6 @@ padding: 0.2em;
 class BoxItem extends React.Component {
     
  
-    state = {
-        typing : true
-    };
 
  
     handleEnter = (e) => {
@@ -33,9 +33,10 @@ class BoxItem extends React.Component {
             const value = e.target.value;
             
             this.props.editContentDomi(this.props.id,value);
-            this.setState({typing: false});
+       
         }
     }
+
 
 
     render(){ 
@@ -51,7 +52,7 @@ class BoxItem extends React.Component {
 
                       
                         {
-                           this.state.typing === true ? <input onKeyDown={this.handleEnter}></input> : <ContentP>{this.props.domiItem.content}</ContentP>
+                           this.props.domiItem.editing === true ? <input onKeyDown={this.handleEnter} autoFocus></input> : <ContentP>{this.props.domiItem.content}</ContentP>
                         }
                     <ButtonIcon></ButtonIcon>
                 </BoxDivEdditable>

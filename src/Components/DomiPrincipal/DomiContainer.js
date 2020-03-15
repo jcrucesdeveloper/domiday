@@ -9,15 +9,21 @@ import styled from 'styled-components';
 
 class DomiContainer extends React.Component {
     render(){
-        return this.props.domi.map(domi => (
-            <DomiItem hour={domi.hour} key={`domi-${domi.hour}`}>
-            </DomiItem>))
+
+        return (
+        this.props.domiIds.map(domiId => {
+            const currentDomi = this.props.domi[domiId];
+            return <DomiItem data={currentDomi} key={currentDomi.id} id={currentDomi.id}></DomiItem>;
+            
+        })
+        )
     }
 
 
 }
 const mapStateToProps = state => ({
-    domi: state.day.domi
+    domiIds: state.user.domiDivIds,
+    domi: state.domi
 
 });
 

@@ -9,7 +9,7 @@ import {Droppable} from 'react-beautiful-dnd';
 import {connect} from 'react-redux';
 
 
-import {createDomi} from '../../actions/domiActions';
+import {createDomi} from '../../actions/domiItemsActions';
 import {updateDomiIds} from '../../actions/userActions';
 import {addDomiToBox} from '../../actions/boxesActions';
 

@@ -5,6 +5,10 @@ import BoxDiv from '../ReusableComponents/BoxDiv';
 import ButtonIcon from '../Utilities/ButtonIcon';
 import {Draggable} from 'react-beautiful-dnd';
 
+import {connect} from 'react-redux';
+
+import {editContentDomi} from '../../actions/domiItemsActions';
+
 const TodoItemDiv = styled(BoxDiv)`
   
     padding: ${props => props.padding || '0'};
@@ -14,25 +18,23 @@ const TodoItemDiv = styled(BoxDiv)`
     }
 `;
 
+const ContentP = styled.p`
+margin :0;
+padding: 0.2em;
+`;
+
 
 class TodoItem extends React.Component {
 
     state = {
-        typing: true,   
-        padding: '0em'
-    }
-
+        typing : true
+    };
     handleEnter = (e) => {
         if(e.keyCode === 13){
-         
-            const newValue = e.target.value;
-        
+            const value = e.target.value;
             
-            this.setState({
-                typing: false,
-                padding: '0.3em'            
-            });
-        
+            this.props.editContentDomi(this.props.id,value);
+            this.setState({typing: false});
         }
     }
 
@@ -41,7 +43,7 @@ class TodoItem extends React.Component {
     render(){
         return(
 
-            <Draggable>
+            <Draggable index={this.props.index} draggableId={this.props.id}>
                 {provided => (
                     <TodoItemDiv 
                     {...provided.draggableProps}
@@ -49,14 +51,9 @@ class TodoItem extends React.Component {
                     padding={this.state.padding}
                     ref={provided.innerRef} 
                     >
-                    {
-                        this.state.typing === true ? null : this.props.info
-                    }
-                    {   
-                        this.state.typing === true ? <input  
-                        onKeyDown={this.handleEnter}
-                        autoFocus/> : null 
-                    }
+                        {
+                           this.state.typing === true ? <input onKeyDown={this.handleEnter} autoFocus></input> : <ContentP>{this.props.domiItem.content}</ContentP>
+                        }
                     <ButtonIcon></ButtonIcon>
                     </TodoItemDiv>                    
 
@@ -73,4 +70,9 @@ class TodoItem extends React.Component {
 
 }
 
-export default TodoItem;
+const mapStateToProps = (state, ownProps) => ({
+    domiItem: state.domiItems[ownProps.id]
+
+});
+
+export default connect(mapStateToProps,{editContentDomi})(TodoItem);

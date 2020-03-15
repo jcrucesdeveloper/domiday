@@ -9,7 +9,10 @@ import styled from 'styled-components';
 
 import {connect} from 'react-redux';
 
-import {dragSameBox} from '../actions/boxesActions';
+import {dragSameBox,dragDifferentBox} from '../actions/boxesActions';
+import {dragSameTodo} from '../actions/todoActions';
+import {dragToDomi} from '../actions/domiActions';
+
 
 
 
@@ -28,18 +31,39 @@ class Core extends React.Component {
 
     //draggableId, type, source, destination
     onDragEnd = result => { 
+  
         const {source,destination,draggableId} = result;
         if(result.destination === null) return;
-        if(source.index === destination.index && source.draggableId === destination.draggableId) return;
+        if(source.index === destination.index && source.droppableId === destination.droppableId) return;
 
-        if(source.index !== destination.index && source.draggableId === destination.draggableId){
+           //drag different box
+
+        if(source.droppableId !== destination.droppableId && destination.droppableId.includes('domi')){
+            this.props.dragToDomi(draggableId,destination.droppableId);
+            return;
+        }
+        if( source.droppableId !== destination.droppableId && source.droppableId !== "todoList" && destination.droppableId !=="todoList"){
+            this.props.dragDifferentBox(draggableId, source.index ,destination.index ,source.droppableId ,destination.droppableId);   
+            
+        }
+        //box same box
+        if((source.index !== destination.index) && ( source.droppableId === destination.droppableId) && (source.droppableId !== "todoList")){
             //Dragableid, indexStart, indexEnd, droppableId
             this.props.dragSameBox(draggableId,source.index,destination.index,source.droppableId);
             
             
         }
+
+     
+
+        //drag same todoList
+        if((source.index !== destination.index) && ( source.draggableId === destination.draggableId) && (source.droppableId === "todoList")){
+            this.props.dragSameTodo(draggableId, source.index,destination.index);
+        }
+        return;
+
         //Drag same box
-        console.log(result);
+
     
     }
     
@@ -63,4 +87,4 @@ const mapStateToProps = state => ({
     info: state
 });
 
-export default connect(mapStateToProps,{dragSameBox})(Core);
+export default connect(mapStateToProps,{dragSameBox,dragSameTodo,dragDifferentBox,dragToDomi})(Core);

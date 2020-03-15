@@ -1,4 +1,4 @@
-import {ADD_DOMI_TO_BOX, TEST_CHANGE, DRAG_SAME_BOX} from '../actions/types';
+import {ADD_DOMI_TO_BOX, TEST_CHANGE, DRAG_SAME_BOX, DRAG_DIFFERENT_BOX} from '../actions/types';
 const initialState = {};
 
 export default function (boxes = initialState ,action){
@@ -12,10 +12,19 @@ export default function (boxes = initialState ,action){
             return Object.assign({},boxes, {[action.boxId]:currentBox});
         case DRAG_SAME_BOX: 
             const boxDrag = Object.assign({}, boxes[action.boxId]);
-            const updatedBoxItemdsIds =boxDrag.boxItemsIds;
-            updatedBoxItemdsIds.splice(action.sourceIndex,1);
-            updatedBoxItemdsIds.splice(action.destinationIndex,0,action.dragId);
+            const updatedBoxItemsIds = boxDrag.boxItemsIds;
+            updatedBoxItemsIds.splice(action.sourceIndex,1);
+            updatedBoxItemsIds.splice(action.destinationIndex,0,action.draggableId);
             return Object.assign({},boxes,{[action.boxId] : boxDrag});
+        case DRAG_DIFFERENT_BOX: 
+            const sourceBox = Object.assign({},boxes[action.sourceId]); 
+            const destinationBox = Object.assign({},boxes[action.destinationId]);
+            const sourceBoxIds = sourceBox.boxItemsIds;
+            sourceBoxIds.splice(action.sourceIndex,1);
+            const destinationBoxIds = destinationBox.boxItemsIds;
+            destinationBoxIds.splice(action.destinationIndex,0,action.draggableId);
+    
+        return Object.assign({},boxes,{[action.sourceId] : sourceBox, [action.destinationId] : destinationBox});
         case TEST_CHANGE: 
             return boxes;
 

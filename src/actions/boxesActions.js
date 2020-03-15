@@ -1,5 +1,5 @@
 
-import {ADD_DOMI_TO_BOX, TEST_CHANGE, DRAG_SAME_BOX} from './types';
+import {ADD_DOMI_TO_BOX, TEST_CHANGE, DRAG_SAME_BOX, DRAG_DIFFERENT_BOX} from './types';
 //Connection with the server here
 
 export const addDomiToBox = (boxId,domiId) => {
@@ -16,12 +16,24 @@ export const testChange = () => {
     }
 }
 
-export const dragSameBox = (dragId,sourceIndex,destinationIndex,dropId) =>{
+export const dragSameBox = (draggableId,sourceIndex,destinationIndex,dropId) =>{
     return {
         type: DRAG_SAME_BOX,
-        dragId: dragId,
+        draggableId: draggableId,
         sourceIndex: sourceIndex,
         destinationIndex: destinationIndex,
         boxId: dropId
     }
 }
+
+export const dragDifferentBox =  (draggableId,sourceIndex,destinationIndex,sourceId, destinationId) =>{
+    return {
+        type: DRAG_DIFFERENT_BOX,
+        draggableId: draggableId,
+        sourceIndex: sourceIndex,
+        destinationIndex: destinationIndex,
+        sourceId: sourceId,
+        destinationId: destinationId
+        
+    }
+} 

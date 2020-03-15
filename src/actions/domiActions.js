@@ -1,17 +1,9 @@
-import {CREATE_DOMI, EDIT_CONTENT_DOMI} from './types';
+import {DRAG_TO_DOMI} from './types';
 
-
-export const createDomi = (id) =>{
-    return {
-        type: CREATE_DOMI,
-        id: id
-    }
-}
-
-export const editContentDomi = (id,content) => {
-    return {
-        type: EDIT_CONTENT_DOMI,
-        id: id,
-        content :content
+export const dragToDomi = (domiId,containerId) => {
+    return{
+        type: DRAG_TO_DOMI,
+        domiId: domiId,
+        containerId: containerId
     }
 }
