@@ -8,7 +8,7 @@ import UserSquareSrc from '../Svg/user-solid-square.svg';
 import MenuSrc from '../Svg/menu.svg';
 import CalendarSrc from '../Svg/calendar.svg';
 import ArrowUpSrc from '../Svg/arrow-thin-up.svg';
-
+import DomiDaySrc from '../Svg/DomiDayLogo.svg';
 
 function AddIcon (props) {
     return <img src={AddIconSrc} alt="icon" style={{width: props.width || '1em', height: props.height || '1em'}}></img>
@@ -46,6 +46,10 @@ function ArrowUp(props){
     return <img src={ArrowUpSrc} style={{width: props.width || '1em', height: props.height || '1em'}}></img>
 
 }
+function DomiDayLogo(props){
+    return <img src={DomiDaySrc} style={{width: props.width || '1em', height: props.height || '1em',margin:"0",padding:"0"}}></img>
+
+}
 
 
 
@@ -53,4 +57,4 @@ function ArrowUp(props){
 
 
 
-export {AddIcon, CheveronRight, CheveronLeft,EditPencil, UserSquare, Menu, Calendar, ArrowUp};
+export {AddIcon, CheveronRight, CheveronLeft,EditPencil, UserSquare, Menu, Calendar, ArrowUp, DomiDayLogo};

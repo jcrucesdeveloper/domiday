@@ -7,7 +7,8 @@ export default function(domiItems = initialState, action ){
 
     switch(action.type){
         case CREATE_DOMI:
-            const newDomi = Object.assign({},defaultDomi,{id: action.id});
+            const edit_available = action.content === '' ? true : false;
+            const newDomi = Object.assign({},defaultDomi,{id: action.id, content : action.content,editing: edit_available});
             return Object.assign({},domiItems,{[action.id] : newDomi});
         case EDIT_CONTENT_DOMI:
             const itemInfo = Object.assign({},domiItems[action.id]);

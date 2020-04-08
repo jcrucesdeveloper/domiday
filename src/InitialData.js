@@ -173,6 +173,9 @@ const initialData = {
     user:{
         username : '',
         img: '',
+        accessToken: '',
+        enter: false,
+        loading : true,
         tutorial: false,
         progress: [],
         domiIds: [],

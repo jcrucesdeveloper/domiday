@@ -32,6 +32,7 @@ export const DELETE_TODO = 'DELETE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
 
 //User Actions
+export const UPDATE_ACCESS_TOKEN = 'UPDATE_ACCESS_TOKEN';
 export const UPDATE_DOMI_IDS = 'UPDATE_DOMI_IDS';
 export const MENU_ACTION = 'MENU_ACTION';
 export const USER_ACTION = 'USER_ACTION';

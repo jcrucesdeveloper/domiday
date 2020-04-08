@@ -32,7 +32,7 @@ class WeekItem extends React.Component {
         if(newValue <= 0){
             newValue = (lastDayPastMonth - dayOfTheWeek) +1;
             lastDayMonth = lastDayPastMonth;
-            console.log(lastDayMonth);
+        
         }
         
 

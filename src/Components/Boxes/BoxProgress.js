@@ -10,8 +10,7 @@ import {connect} from 'react-redux';
 
 
 import {createDomi} from '../../actions/domiItemsActions';
-import {updateDomiIds} from '../../actions/userActions';
-import {addDomiToBox} from '../../actions/boxesActions';
+
 
 const BoxDiv = styled.div`
     border-radius: 16px;
@@ -40,9 +39,10 @@ class BoxProgress extends React.Component {
         const numId = this.props.userInfo.domiIds.length;
         const newId = `domi-${numId}`;
 
-        this.props.createDomi(newId);
-        this.props.updateDomiIds(newId);
-        this.props.addDomiToBox(this.props.data.id,newId);
+
+        //Data to make into the database
+        this.props.createDomi(newId,this.props.data.id);
+
         
 
     }
@@ -97,4 +97,4 @@ function mapStateToProps(state,ownProps){
 
 
 
-export default connect(mapStateToProps,{createDomi,updateDomiIds,addDomiToBox})(BoxProgress);
+export default connect(mapStateToProps,{createDomi})(BoxProgress);
